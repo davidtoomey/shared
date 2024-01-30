@@ -1,104 +1,111 @@
 import React from "react";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Typography, Paper, Grid, Container } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
-import Link from '@mui/material/Link';
-import GlobalStyles from '@mui/material/GlobalStyles';
-import { Link as RouterLink } from 'react-router-dom';
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Typography, Paper, Grid, Container } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import Toolbar from "@mui/material/Toolbar";
+import Link from "@mui/material/Link";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import { Link as RouterLink } from "react-router-dom";
+import DashboardNavBar from "./DashboardNavBar/DashboardNavBar";
 const Dashboard = () => {
-
   const defaultTheme = createTheme();
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
+      <GlobalStyles
+        styles={{ ul: { margin: 0, padding: 0, listStyle: "none" } }}
+      />
       <CssBaseline />
-      <AppBar
-        position="static"
-        color="default"
-        elevation={0}
-        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
-      >
-        <Toolbar sx={{ flexWrap: 'wrap' }}>
-          <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-           GPT For Slack 
-          </Typography>
-          <nav>
-            <Link
-              variant="button"
-              color="text.primary"
-              href="#"
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              Features
-            </Link>
-            <Link
-              variant="button"
-              color="text.primary"
-              href="#"
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              Enterprise
-            </Link>
-            <Link
-              variant="button"
-              color="text.primary"
-              href="#"
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              Support
-            </Link>
-            <RouterLink to="/">Back</RouterLink>
-          </nav>
-          <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
+
+      <DashboardNavBar />
       <Container>
-        <Paper style={{ padding: '20px', marginTop: '20px' }}>
+        <Paper
+          style={{
+            padding: "20px",
+            marginTop: "20px",
+            border: "3px solid #576b73",
+            borderRadius: "25px",
+          }}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="h6">User Dashboard</Typography>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 600, color: "#052843" }}
+              >
+                User Dashboard
+              </Typography>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Typography variant="subtitle1">User:</Typography>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontWeight: 600, color: "#052843" }}
+              >
+                User:
+              </Typography>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Typography variant="subtitle1">Team ID:</Typography>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontWeight: 600, color: "#052843" }}
+              >
+                Team ID:
+              </Typography>
             </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="subtitle1">Subscription Status: </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="subtitle1">Subscription Creator: </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="subtitle1">Subscription Start Date:</Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="subtitle1">Subscription End Date:</Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="subtitle1">Subscription Status: </Typography>
-                </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontWeight: 600, color: "#052843" }}
+              >
+                Subscription Start Date:
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontWeight: 600, color: "#052843" }}
+              >
+                Subscription Renewal:
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontWeight: 600, color: "#052843" }}
+              >
+                Subscription Status:
+              </Typography>
+            </Grid>
           </Grid>
         </Paper>
-        <Paper style={{ padding: '20px', marginTop: '20px' }}>
-          <Grid container spacing={2}>
+        <Paper
+          style={{
+            padding: "20px",
+            marginTop: "20px",
+
+            border: "3px solid #576b73",
+            borderRadius: "25px",
+          }}
+        >
+          <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
-              <Grid item xs={12}>
-                <Button variant="contained" color="primary"> 
-                Manage Your Subscription
-                </Button>
-                <Button variant="contained" color="primary">
-                    Add To Slack
-                </Button>
-              </Grid>
+              <div
+                style={{
+                  display: "flex",
+                  // justifyContent: "center",
+                  gap: "7px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <button className="btn">Manage Your Subscription</button>
+                <button className="btn">Add to Slack</button>
+                <a href="mailto:info@peznetsolutions.com" className="nav-btn">
+                  Email Support
+                </a>
+              </div>
             </Grid>
           </Grid>
         </Paper>
